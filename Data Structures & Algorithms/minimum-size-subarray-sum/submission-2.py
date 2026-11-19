@@ -1,0 +1,24 @@
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        
+
+        l = 0
+        total = 0
+        length = float('inf')
+
+
+        for r, num in enumerate(nums):
+            total += num
+
+            while total >= target:
+                length = min(length, r-l+1)
+                total -= nums[l]
+                l+=1
+
+
+
+        return length if length != float('inf') else 0
+
+            
+            
+            
